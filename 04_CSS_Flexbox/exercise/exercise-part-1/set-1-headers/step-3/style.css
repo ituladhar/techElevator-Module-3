@@ -37,3 +37,11 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+
+header, a {
+  flex-grow: 0;
+}
+
+header, nav {
+  flex-grow: 1;
+}
