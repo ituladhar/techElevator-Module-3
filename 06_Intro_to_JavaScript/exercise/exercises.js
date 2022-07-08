@@ -150,14 +150,24 @@ In all other cases return the original number.
 	filterEvens([2, 4, 6]) → [2, 4, 6]
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
-		function filterEvens(x){
-			const evenOnlyNumbers = [];
-			for(const number of x){
-				if(number % 2 == 0){
-					evenOnlyNumbers.push(number);
+		// function filterEvens(x){
+		// 	const evenOnlyNumbers = [];
+		// 	for(const number of x){
+		// 		if(number % 2 == 0){
+		// 			evenOnlyNumbers.push(number);
+		// 		}
+		// 	}
+		// 	return evenOnlyNumbers;
+		// }
+
+		//Anonymous functions 
+		function filterEvens(evenNum){
+			let result = evenNum.filter (
+				allNumber => {
+					return allNumber % 2 === 0;
 				}
-			}
-			return evenOnlyNumbers;
+			);
+			return result;
 		}
 
 /*
@@ -166,15 +176,26 @@ In all other cases return the original number.
 	filterBigNumbers([7, 10, 121, 100, 24, 162, 200]) → [121, 100, 162, 200]
 	filterBigNumbers([3, 2, 7, 1, -100, -120]) → []
 	filterBigNumbers([]) → []
-*/
-		function filterBigNumbers(x){
-			const biggerNumbers = [];
-			for(const bigNum of x){
-				if(bigNum >= 100){
-					biggerNumbers.push(bigNum);
+// */
+// 		function filterBigNumbers(x){
+// 			const biggerNumbers = [];
+// 			for(const bigNum of x){
+// 				if(bigNum >= 100){
+// 					biggerNumbers.push(bigNum);
+// 				}
+// 			}
+// 			return biggerNumbers;
+// 		}
+
+
+		//Anonymous functions
+		function filterBigNumbers(bigNum){
+			let result = bigNum.filter (
+				number => {
+					return number >= 100;
 				}
-			}
-			return biggerNumbers;
+			);
+			return result;
 		}
 
 /*
