@@ -22,6 +22,15 @@ function setPageTitle() {
   title.innerText = pageTitle;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+  displayGroceries();
+  checkedItems();
+  uncheckedItems();
+  markAllComplete();
+  
+})
+
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
@@ -36,3 +45,74 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+
+
+
+function checkedItems(){
+  let items = document.querySelectorAll('li');
+  items.forEach(item => {
+    if(item.classList.contains('completed') == false){
+      item.addEventListener('click', () =>{
+        item.classList.add('completed');
+      })
+    }
+  })
+}
+
+function uncheckedItems(){
+  let items = document.querySelectorAll('li')
+  items.forEach(item =>{
+    item.addEventListener('dblclick', () =>{
+      item.classList.remove('completed');
+    })
+  })
+}
+
+
+
+function markAllComplete() {
+  const items = document.querySelectorAll('li');
+  const btn = document.getElementById('toggleAll');
+  
+  if (allItemsIncomplete) {
+    btn.addEventListener('click', (event) => {
+      items.forEach(item => {
+        item.classList.toggle('completed');        
+      })
+      if (allItemsIncomplete) {
+        event.target.innerText = 'Mark All Incomplete';
+        allItemsIncomplete = false;
+      } else if (!allItemsIncomplete) {
+        event.target.innerText = 'Mark All Complete';
+        allItemsIncomplete = true;
+      }      
+    })
+  }
+  
+// function markAllComplete(){
+//   let items = document.querySelectorAll('li');
+//   let btn = document.getElementById('toggleAll');
+ 
+//     btn.addEventListener('click', () => {
+//       if(allItemsIncomplete){
+//           items.forEach(item => {
+//           item.classList.toggle('completed');
+//           btn.innerText = 'Mark All Incomplete';
+//          })
+//       }
+//     })
+
+//       btn.addEventListener('click', () => {
+//       if(!allItemsIncomplete){
+//         items.forEach(item => {
+//         item.classList.remove('completed');
+//         btn.innerText = 'Mark All Complete';
+//           })
+//         }
+//       }) 
+
+    
+}
+
+
